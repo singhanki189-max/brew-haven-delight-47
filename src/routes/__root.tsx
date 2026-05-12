@@ -79,10 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: "Brew Haven Café" },
       { property: "og:title", content: "Brew Haven Café" },
-      { property: "og:description", content: "Fresh Coffee, Warm Moments." },
+      { property: "og:description", content: "choose the best" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Brew Haven Café" },
+      { name: "description", content: "choose the best" },
+      { name: "twitter:description", content: "choose the best" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/31f4af51-4fa1-4626-9f30-6061a71baee6" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/31f4af51-4fa1-4626-9f30-6061a71baee6" },
     ],
     links: [
       {
