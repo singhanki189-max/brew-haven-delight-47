@@ -33,6 +33,10 @@ function setupMenuFilters() {
   const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-menu-filter]"));
   const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-menu-category]"));
   if (filterButtons.length === 0 || cards.length === 0) return;
+  if (filterButtons[0]?.dataset.initialized === "true") return;
+  filterButtons.forEach((button) => {
+    button.dataset.initialized = "true";
+  });
 
   const applyFilter = (value: string) => {
     cards.forEach((card) => {
@@ -61,6 +65,8 @@ function setupMenuFilters() {
 function setupContactValidation() {
   const form = document.getElementById("contact-form") as HTMLFormElement | null;
   if (!form) return;
+  if (form.dataset.initialized === "true") return;
+  form.dataset.initialized = "true";
 
   const nameInput = form.querySelector<HTMLInputElement>("#name");
   const emailInput = form.querySelector<HTMLInputElement>("#email");
@@ -103,6 +109,10 @@ function setupContactValidation() {
 function setupCounters() {
   const counters = Array.from(document.querySelectorAll<HTMLElement>("[data-counter-target]"));
   if (counters.length === 0) return;
+  if (counters[0]?.dataset.initialized === "true") return;
+  counters.forEach((counter) => {
+    counter.dataset.initialized = "true";
+  });
 
   const observer = new IntersectionObserver(
     (entries) => {
