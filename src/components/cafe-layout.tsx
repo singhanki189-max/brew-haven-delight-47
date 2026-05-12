@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { initCafeInteractions } from "@/lib/cafe-interactions";
 import { cn } from "@/lib/utils";
 import { siteMeta } from "@/lib/cafe-data";
 
@@ -71,6 +72,10 @@ export function CafeLayout({ children }: { children: React.ReactNode }) {
   }, [location.pathname]);
 
   useEffect(() => {
+    initCafeInteractions();
+  }, [location.pathname]);
+
+  useEffect(() => {
     const timer = window.setTimeout(() => setLoading(false), 780);
     return () => window.clearTimeout(timer);
   }, [location.pathname]);
@@ -81,7 +86,7 @@ export function CafeLayout({ children }: { children: React.ReactNode }) {
     <>
       {loading ? (
         <div className="fixed inset-0 z-[90] flex items-center justify-center bg-background/95 backdrop-blur-sm">
-          <div className="loading-shimmer h-18 w-18 rounded-full border border-border/80" />
+          <div className="loading-shimmer h-16 w-16 rounded-full border border-border/80" />
         </div>
       ) : null}
 
