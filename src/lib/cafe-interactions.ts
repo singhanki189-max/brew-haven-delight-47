@@ -8,7 +8,8 @@ export function initCafeInteractions() {
 function setupTestimonials() {
   const inner = document.getElementById("testimonial-inner");
   const dots = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-testimonial-dot]"));
-  if (!inner || dots.length === 0) return;
+  if (!inner || dots.length === 0 || inner.dataset.initialized === "true") return;
+  inner.dataset.initialized = "true";
 
   let index = 0;
   const setSlide = (next: number) => {
